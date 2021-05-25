@@ -1,0 +1,12 @@
+#imagenes{
+  border:1px solid #000000;
+  width: 800px;
+  height: 400px;
+  align-self: center;
+}
+
+#texto{
+  border: 1px solid #000000;
+  width: 400px;
+  height:400px;
+}
