@@ -3,32 +3,60 @@
   <head>
     <meta charset="utf-8">
     <title>Animaciones</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="animaciones.js"></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <nav class="navigator">
       <table>
         <tr id="tablaBotones">
           <td><input type="button" id="pila" value="Pila"></td>
-          <td><button type="button" id="Cola" name="Cola" onclick="EstructCola()">COLA</button></td>
-          <td><button type="button" id="Lista" name="Lista" onclick="EstructLista()">LISTA</button></td>
+          <td><input type="button" id="Cola" value="Cola"></td>
+          <td><input type="button" id="Lista" value="Lista"></td>
         </tr>
       </table>
       <table id="TablaDatos">
         <tr>
           <td>Dato a Insertar:</td>
-          <td><input type="text" name="Dato" id="Dato" value=""/></td>
-          <td><button type="button" name="InsertarDato" id="InsertarDato" onclick="Insertar">Insertar Dato</button></td>
-          <button type="button" name="InsertarDato" id="InsertarDato">Insertar Dato</button>
+          <td><input type="text" id="dato"/></td>
+          <td><input type="button"id="insertarDato" value="Insertar Dato"></td>
         </tr>
       </table>
     </nav>
+
     <article class="article">
       <div class="areaTrab">
-      </div>
-    </article>
-    <footer class="footer"></footer>
 
+
+        <table class="pilastabla" id="modelo1">
+          <td> <canvas class="canvas" id="canvasnumero2" width="50" height="50"></canvas> </td>
+        </table>
+        <br>
+        <br>
+        <br>
+        <table class="flechas">
+          <tr>
+
+            <td>
+              <canvas  class="canvas" id="canvasnumero1" width="50" height="50"></canvas>
+              <canvas id="canvas" width="80" height="50"></canvas>
+          </td>
+          </tr>
+
+        </table>
+
+
+        <table id="tablas">
+          <tr>
+          </tr>
+        </table>
+
+
+      </div>
+
+    </article>
+
+
+    <footer class="footer"></footer>
   </body>
 </html>
