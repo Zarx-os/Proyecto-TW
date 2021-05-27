@@ -3,6 +3,8 @@ class Stack {
     this.items = [];
     this.count = 0;
   }
+
+
   push(element) {
     this.items[this.count] = element;
     this.count += 1;
@@ -51,7 +53,6 @@ class Stack {
 
 
 }
-
 
 
 function draw_arrow(context, startX, startY, size) {
