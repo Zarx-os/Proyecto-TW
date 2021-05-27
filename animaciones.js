@@ -61,12 +61,33 @@ function mandarPagina() {
 }
 
 
+function verificar(){
+  let dato=document.getElementById('dato');
+  if(isNaN(dato.value)){
+    alert("No es un numero");
+  }else {
+    crearDiv(dato);
+  }
+}
 
+function crearDiv(dato){
+  const $div=document.createElement("div"),
+  $text=document.createTextNode(dato.value);
+  console.log(dato);
+  let base=document.getElementById("base");
+  $div.setAttribute("class","box");
+  $div.appendChild($text);
+  agregarNodo($div);
+}
 
+function agregarNodo($div){
+  let existingNode=document.getElementById('boxbase');
+  insertAfter($div,existingNode);
+}
 
-
-
-
+function insertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
 
 
 
@@ -76,7 +97,7 @@ function cargar() {
   let canvas = document.getElementById('canvas');
   var boton = document.getElementById('insertarDato');
   pagina.addEventListener("click", mandarPagina, false);
-  boton.addEventListener("click", appendColumn, false);
+  boton.addEventListener("click", verificar, false);
 }
 
 window.addEventListener("load", cargar, false);
