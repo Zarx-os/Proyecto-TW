@@ -94,7 +94,7 @@ function appendRow() {
     row = tbl.insertRow(tbl.rows.length); // append table row
     createCell(row.insertCell(0),0, 'row'); //se refiere a lo que ira en el div
 }
-//Hola
+//Holalf
   div.appendChild(txt); // append text node to the DIV
   div.setAttribute('class', style); // set DIV class attribute
   div.setAttribute('className', style);
