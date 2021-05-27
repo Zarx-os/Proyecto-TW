@@ -54,6 +54,9 @@ body{
   background-color: #3e4444;
   width: 100%;
   height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -64,6 +67,15 @@ body{
 }
 #canvas{
   background-color: white;
+}
+
+.figura{
+  width: 200px;
+  height: 400px;
+  border: 10px;
+  border-top: 0px;
+  border-style: solid;
+  
 }
 
 .botonesStruct{
