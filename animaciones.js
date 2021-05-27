@@ -52,7 +52,7 @@ class Stack {
 
 }
 
-
+//Señorita Elizabethh
 function draw_arrow(context, startX, startY, size) {
   var arrowX = startX + 0.75 * size;
   var arrowTopY = startY - 0.707 * (0.25 * size);
