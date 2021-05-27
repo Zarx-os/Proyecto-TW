@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Animaciones</title>
-    <script src="animaciones.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <nav class="navigator">
-      <table>
-        <tr id="tablaBotones">
-          <td><input type="button" id="pila" value="Pila"></td>
-          <td><input type="button" id="Cola" value="Cola"></td>
-          <td><input type="button" id="Lista" value="Lista"></td>
-        </tr>
+
+<head>
+  <meta charset="utf-8">
+  <title>Animaciones</title>
+  <script src="animaciones.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav class="navigator">
+    <table>
+      <tr id="tablaBotones">
+        <td><input type="button" id="pila" value="Pila"></td>
+        <td><input type="button" id="Cola" value="Cola"></td>
+        <td><input type="button" id="Lista" value="Lista"></td>
+      </tr>
+    </table>
+    <table id="TablaDatos">
+      <tr>
+        <td>Dato a Insertar:</td>
+        <td><input type="text" id="dato" /></td>
+        <td><input type="button" id="insertarDato" value="Insertar Dato"></td>
+      </tr>
+    </table>
+  </nav>
+
+  <article class="article">
+    <div class="areaTrab">
+
+
+      <table class="pilastabla" id="modelo1">
+        <td> <canvas class="canvas" id="canvasnumero2" width="50" height="50"></canvas> </td>
       </table>
-      <table id="TablaDatos">
+      <br>
+      <br>
+      <br>
+      <table class="flechas">
         <tr>
-          <td>Dato a Insertar:</td>
-          <td><input type="text" id="dato"/></td>
-          <td><input type="button"id="insertarDato" value="Insertar Dato"></td>
+
+          <td>
+            <canvas class="canvas" id="canvasnumero1" width="50" height="50"></canvas>
+            <canvas id="canvas" width="80" height="50"></canvas>
+          </td>
+        </tr>
+
+      </table>
+
+
+      <table id="tablas">
+        <tr>
         </tr>
       </table>
-    </nav>
-
-    <article class="article">
-      <div class="areaTrab">
 
 
-        <table class="pilastabla" id="modelo1">
-          <td> <canvas class="canvas" id="canvasnumero2" width="50" height="50"></canvas> </td>
-        </table>
-        <br>
-        <br>
-        <br>
-        <table class="flechas">
-          <tr>
+    </div>
 
-            <td>
-              <canvas  class="canvas" id="canvasnumero1" width="50" height="50"></canvas>
-              <canvas id="canvas" width="80" height="50"></canvas>
-          </td>
-          </tr>
-
-        </table>
+  </article>
 
 
-        <table id="tablas">
-          <tr>
-          </tr>
-        </table>
+  <footer class="footer"></footer>
+</body>
 
-
-      </div>
-
-    </article>
-
-
-    <footer class="footer"></footer>
-  </body>
 </html>
