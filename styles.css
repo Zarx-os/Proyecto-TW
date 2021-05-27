@@ -10,44 +10,63 @@ body{
   min-height: 100%;
 }
 .navigator{
-  background-color: red;
+  background: linear-gradient(to bottom, #003399 0%, #000066 100%);
   width: 100%;
-  height: 100px;
+  height: 110px;
+}
+
+.botones{
+  padding: 25px;
+  display: inline-block;
+}
+
+.caja{
+
+  display: inline-flex;
+}
+
+.caja > input[type="button"]{
+  width: 40%;
+  height: 50px;
+  background: #034f84;
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.caja >p {
+  margin-left: 20px;
+  font-size: 16px;
+  color: white;
+}
+
+.caja > input[type="text"]{
+  width: 80px;
+  margin-right: 10px;
+  height: 50px;
+  background: gray;
+  color: white;
+  border-radius: 5px;
+  border-style: none;
 }
 
 .article{
-  background-color: blue;
+  background-color: #3e4444;
   width: 100%;
   height: 800px;
 }
 
 
 .footer{
-  background-color: green;
+  background: linear-gradient(to top, #003399 0%, #000066 100%);
   width: 100%;
   height: 100px;
-}
-.areaTrab{
-  margin-left: 20px;
-  width: 50%;
-  height: 100%;
-  background-color: yellow;
-}
-
-#pila{
-  text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
 }
 #canvas{
   background-color: white;
 }
-#Cola{
+
+.botonesStruct{
   text-decoration: none;
     padding: 10px;
     font-weight: 600;
@@ -56,49 +75,4 @@ body{
     background-color: #1883ba;
     border-radius: 6px;
     border: 2px solid #0016b0;
-}
-
-#Lista{
-  text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
-}
-
-#tablas{
-  border: 1px;
-  width: 50px;
-  height: 200px;
-  border-style: groove;
-}
-.canvas{
-  background-color: red;
-  width: 50px;
-  height: 50px;
-}
-.pilastabla{
-  border: 1px;
-  border-style: groove;
-  width: 50px;
-  height: 200px;
-}
-
-.pilastabla > *{
-  border: 2px;
-  border-style: groove;
-}
-.flechas{
-  border: 1px;
-  border-style: groove;
-  width: 150px;
-  height: 200px;
-}
-
-.cuerpo2{
-  background-color: red;
-  color: blue;
 }
