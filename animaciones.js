@@ -4,14 +4,12 @@ class Stack {
     this.count = 0;
   }
 
-
   push(element) {
     this.items[this.count] = element;
     this.count += 1;
     console.log(`${element} added to ${this.count}`)
     return this.count - 1;
   }
-
 
   pop() {
     if (this.count == 0) return undefined;
@@ -94,7 +92,16 @@ function appendRow() {
     row = tbl.insertRow(tbl.rows.length); // append table row
     createCell(row.insertCell(0),0, 'row'); //se refiere a lo que ira en el div
 }
-//Holalf
+
+// create DIV element and append to the table cell
+function createCell(cell, text, style) {
+  var div = document.createElement('div'), // create DIV element
+    //let ctx1 =div.getContext('2d');z
+    txt = document.createTextNode(text); // create text node
+    let canvas1=document.createElement('canvas');
+    let ctx1 = canvas1.getContext('2d');
+    ctx1.lineWidth = 4;
+    draw_arrow(ctx1, 25, 25, 500);
   div.appendChild(txt); // append text node to the DIV
   div.setAttribute('class', style); // set DIV class attribute
   div.setAttribute('className', style);
