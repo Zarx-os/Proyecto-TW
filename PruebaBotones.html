@@ -26,25 +26,27 @@
         <button type="button" name="" value="Cima" onclick="peek()">Cima</button>
       </div>
       <div class="Codigo">
-        <p id="cabecera"><b id="lin0">Funcion push()</b></p>
+        <p id="cabecera"><b id="lin0">void push()</b></p>
         <p id="inicio"><b id="lin1">{</b></p>
-        <p id="linea1"> <b id="lin2">Linea de codigo 1</b></p>
-        <p id="linea2"> <b id="lin3">Linea de codigo 2</b></p>
-        <p id="linea3"> <b id="lin4">Linea de codigo 3</b></p>
-        <p id="linea4"> <b id="lin5">Linea de codigo 4</b></p>
-        <p id="linea5"> <b id="lin6">Linea de codigo 5</b></p>
-        <p id="linea6"> <b id="lin7">Linea de codigo 6</b></p>
-        <p id="fin"><b id="lin8">}</b></p>
+        <p id="linea1"> <b id="lin2">    struct node *nptr = malloc(sizeof(struct node));</b></p>
+        <p id="linea2"> <b id="lin3">    nptr -> data = item;</b></p>
+        <p id="linea3"> <b id="lin4">    nptr -> next = top;</b></p>
+        <p id="linea4"> <b id="lin5">    top = nptr;</b></p>
+        <p id="fin"><b id="lin6">}</b></p>
 
-        <p id="cabecera2"><b id="lin9">Funcion pop()</b></p>
-        <p id="inicio"><b id="lin10">{</b></p>
-        <p id="linea1"> <b id="lin11">Linea de codigo 1</b></p>
-        <p id="linea2"> <b id="lin12">Linea de codigo 2</b></p>
-        <p id="linea3"> <b id="lin13">Linea de codigo 3</b></p>
-        <p id="linea4"> <b id="lin14">Linea de codigo 4</b></p>
-        <p id="linea5"> <b id="lin15">Linea de codigo 5</b></p>
-        <p id="linea6"> <b id="lin16">Linea de codigo 6</b></p>
-        <p id="fin"><b id="lin17">}</b></p>
+        <p id="cabecera2"><b id="lin7">void pop()</b></p>
+        <p id="inicio"><b id="lin8">{</b></p>
+        <p id="linea1"> <b id="lin9">    if(top == NULL)</b></p>
+        <p id="linea2"> <b id="lin10">        printf("\n\nStack is empty");</b></p>
+        <p id="linea3"> <b id="lin11">    else</b></p>
+        <p id="linea4"> <b id="lin12">    {</b></p>
+        <p id="linea5"> <b id="lin13">        struct mode *temp;</b></p>
+        <p id="linea6"> <b id="lin14">        temp = top;</b></p>
+        <p id="linea6"> <b id="lin15">        top = top -> next;</b></p>
+        <p id="linea6"> <b id="lin16">        printf("\n\n%d deleted", temp -> data);</b></p>
+        <p id="linea6"> <b id="lin17">        free(temp);</b></p>
+        <p id="linea6"> <b id="lin18">    }</b></p>
+        <p id="fin"><b id="lin19">}</b></p>
       </div>
     </div>
   </body>
