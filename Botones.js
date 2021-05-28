@@ -11,7 +11,7 @@ function pila(){
 //---------------------------------------------------CODIGO MAU------------------------------------------
 
 function guardar(){
-  for(let i=0;i<9;i++){
+  for(let i=0;i<7;i++){
     //setInterval(function(){ponerColor(i)},3000); // 3000ms = 3s
     ponerColor(i);
 
@@ -19,7 +19,7 @@ function guardar(){
 }
 
 function eliminar(){
-  for(let i=9;i<18;i++){
+  for(let i=7;i<20;i++){
     //setInterval(function(){ponerColor(i)},3000); // 3000ms = 3s
     ponerColorPop(i);
   }
@@ -48,7 +48,7 @@ function ponerColorPop(i){
   cab.style.color = "tomato";
   //cab.style.fontfamily = 'Lato';
   //regresarColor(i);
-  setTimeout(function(){regresarColor(i)},((i+1)*200)-1800); // 3000ms = 3s
+  setTimeout(function(){regresarColor(i)},((i+1)*200)-1400); // 3000ms = 3s
   //document.getElementById('imprime').innerHTML = i;
 }
 
