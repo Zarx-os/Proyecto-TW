@@ -95,13 +95,13 @@ stack = new Stack();
           var canvas = document.getElementById('canvas');
           var context = canvas.getContext("2d");
 
-          // Reset size will clear the canvas, but not for IE9
+          // Restablece el tamaño del lienzo a uno limpio
           canvas.width = window.innerWidth - 20;
           canvas.height = window.innerHeight - 180;
-          context.clearRect(0, 0, canvas.width, canvas.height); // For IE 9
+          context.clearRect(0, 0, canvas.width, canvas.height);
 
           context.font = "14px sans-serif";
-          context.strokeStyle = "#100"; // Set a pen color
+          context.strokeStyle = "#100"; // Coloca el color 
 
           if (stack.isEmpty()) {
               context.fillText("stack is empty", canvas.width / 2 - 50, 15);
@@ -163,26 +163,24 @@ stack = new Stack();
       function drawArrowLine(context, x1, y1, x2, y2) {
           context.moveTo(x1, y1);
           context.lineTo(x2, y2);
-
-          // find slope of this line
+         //Encontrar la pendiente de la linea
           var slope = (y1 - y2) / (x1 - x2);
 
           var arctan = Math.atan(slope);
 
-          // This will flip the arrow 45 off of a
-          // perpendicular line at pt x2
+          // Pondra la flecha 45 del punto x2
           var set45 = 1.57 / 2;
 
-          // arrows should always point towards i, not i+1
+          // La flecha apuntará a i
           if (x1 < x2) {
-              // add 90 degrees to arrow lines
+              // Se añade 90 a la linea
               set45 = -1.57 * 1.5;
           }
 
-          // set length of arrows
+          // coloca el tamaño de la flecha
           var arrlen = 15;
 
-          // draw arrows on line
+          // Dibuja la linea
           context.moveTo(x2, y2);
           context.lineTo(x2 + Math.cos(arctan + set45) * arrlen,
                   y2 + Math.sin(arctan + set45) * arrlen);
