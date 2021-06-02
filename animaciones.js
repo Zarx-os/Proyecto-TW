@@ -31,9 +31,12 @@ class Stack {
 
   size() {
     console.log(`${this.count} elements in stack`)
-    return this.count - 1;
+    return this.count;
   }
 
+  getLastNodo() {
+    return this.items[this.count - 2];
+  }
   print() {
     let str = '';
     for (var i = 0; i < this.count; i++) {
@@ -54,39 +57,157 @@ class Stack {
 
 //--------------------------
 
-
+const pila = new Stack();
+let i = 1;
+let scale = 1;
+let j = 0;
 
 function mandarPagina() {
   alert("Ahora");
 }
 
 
-function verificar(){
-  let dato=document.getElementById('dato');
-  if(isNaN(dato.value)){
-    alert("No es un numero");
-  }else {
-    crearDiv(dato);
+function verificar() {
+  let dato = document.getElementById('dato');
+
+  if (validaVacio(dato.value)) { //Se hace la comprabación de que text este vacio
+    alert("Debe colocar un valor para agregar");
+  } else {
+
+    if (isNaN(dato.value)) { //Se comprueba que sea un número
+      alert("No es un numero");
+    } else {
+      if (pila.size() == 0) { //Si es el primer nodo, solo se crea la cabeza sin flecha
+        pila.push(dato.value);
+        crearDivCabeza(dato);
+        colorea(j);
+        j++;
+      } else { //Si no, se crea la flecha del nodo
+
+        pila.push(dato.value);
+        crearDiv(dato);
+        if (pila.size() == 9 * i) { //Este es para rescalarlo cuando llegue a 9 nodos
+          let todo = document.getElementById('base');
+          i++;
+          scale /= 2;
+          todo.style.transform = "scale(" + (scale) + ")";
+        }
+        colorea(j); //Aquí se encarga de colorear el nodo
+        j++;
+      }
+    }
   }
 }
 
-function crearDiv(dato){
-  const $div=document.createElement("div"),
-  $text=document.createTextNode(dato.value);
-  console.log(dato);
-  let base=document.getElementById("base");
-  $div.setAttribute("class","box");
-  $div.appendChild($text);
-  agregarNodo($div);
+
+
+function colorea(pos) {
+  let div = document.getElementById(pos);
+  if (pos == 0) {
+    div.style.backgroundColor = " #B5E3E3";
+    div.innerHTML = "<p>" + pila.peek() + "</p>" + "<p>Head</p>";
+  } else {
+    let div2 = document.getElementById(pos - 1);
+
+    div.style.backgroundColor = " #B5E3E3";
+    div.innerHTML = "<p>" + pila.peek() + "</p>" + "<p>Head</p>";
+    if ((pos - 1) == 0) {
+      div2.style.backgroundColor = "#FEEED5";
+      div2.innerHTML = "<p>" + pila.getLastNodo() + "</p>"+"<p>Cola</p>";
+    } else {
+      div2.style.backgroundColor = "#FEEED5";
+      div2.innerHTML = "<p>" + pila.getLastNodo() + "</p>";
+    }
+  }
 }
 
-function agregarNodo($div){
-  let existingNode=document.getElementById('boxbase');
-  insertAfter($div,existingNode);
+function coloreaRemove(pos) {
+  let div = document.getElementById(pos);
+
+  if (pos == 0) {
+    alert("Esta vacia tu pila");
+  } else {
+    let div2 = document.getElementById(pos - 1);
+    div2.style.backgroundColor = "#B5E3E3";
+    div2.innerHTML = "<p>" + pila.peek() + "</p>" + "<p>Head</p>";
+  }
 }
 
-function insertAfter(newNode, existingNode) {
-    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+function validaVacio(valor) { //Función para verificar si esta vacio text
+  valor = valor.replace("&nbsp;", "");
+  valor = valor == undefined ? "" : valor;
+  if (!valor || 0 === valor.trim().length) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+function eliminar() { //Función para eliminar los nodos
+  let todo = document.getElementById('base');
+  if (pila.size() == 0) { //Si la pila esta vacia, no se puede eliminar nodos
+    alert("No se pueden eliminar más elementos");
+  } else {
+    todo.removeChild(todo.childNodes[2]); //Remueve al div
+    pila.pop();
+    if (pila.size() == 8 * (i - 1)) { //Rescalar cuando la cantidad de nodos sean menores
+      let todo = document.getElementById('base');
+      i--;
+      if (i == 0) { //Aquí solo hacemos una comprobación del nodo 0
+        style = 1;
+        i = 1;
+      } else {
+        scale *= 2;
+      }
+      todo.style.transform = "scale(" + (scale) + ")";
+    }
+    j--;
+    coloreaRemove(j);
+  }
+}
+
+
+function crearDiv(dato) { //Se crean los nodos para agregarlos dinamicamente
+  const $divarrow = document.createElement("div"),
+    $divicon = document.createElement("div"),
+    $divnodo = document.createElement("div"),
+    $divboxbase = document.createElement("div"),
+    $text = document.createTextNode(dato.value);
+  let base = document.getElementById("base");
+  $divicon.setAttribute("class", "icon");
+  $divarrow.setAttribute("class", "arrow");
+  $divnodo.setAttribute("class", "nodo");
+  $divnodo.setAttribute("id", j)
+  $divboxbase.setAttribute("class", "boxbase");
+  $divnodo.appendChild($text);
+  $divicon.appendChild($divarrow);
+  $divboxbase.appendChild($divnodo);
+  $divboxbase.appendChild($divicon);
+  agregarNodo($divboxbase);
+}
+
+
+function crearDivCabeza() { //Lo mismo que lo de arriba, pero este no lleva flecha de nodo
+  const $divnodo = document.createElement("div"),
+    $divboxbase = document.createElement("div"),
+    $text = document.createTextNode(dato.value);
+  let base = document.getElementById("base");
+  $divnodo.setAttribute("class", "nodo");
+  $divnodo.setAttribute("id", j);
+  $divboxbase.setAttribute("class", "boxbase");
+  $divnodo.appendChild($text);
+  $divboxbase.appendChild($divnodo);
+  agregarNodo($divboxbase);
+}
+
+function agregarNodo($div) { //agraga los nodos al elemento padre
+  let existingNode = document.getElementById('boxbase');
+  insertAfter($div, existingNode);
+}
+
+function insertAfter(newNode, existingNode) { //Esta función nos agrega los elementos antes del creado
+  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
 
 
@@ -94,10 +215,12 @@ function insertAfter(newNode, existingNode) {
 //Codigo para cargar el document
 function cargar() {
   let pagina = document.getElementById('pila');
-  let canvas = document.getElementById('canvas');
+  let lista = document.getElementById('lista');
+  let sacar = document.getElementById('sacar');
   var boton = document.getElementById('insertarDato');
   pagina.addEventListener("click", mandarPagina, false);
   boton.addEventListener("click", verificar, false);
+  sacar.addEventListener("click", eliminar, false);
 }
 
 window.addEventListener("load", cargar, false);

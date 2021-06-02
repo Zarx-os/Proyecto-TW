@@ -65,17 +65,19 @@ body{
   width: 100%;
   height: 100px;
 }
-#canvas{
-  background-color: white;
-}
 
 .figura{
-  width: 200px;
-  height: 500px;
-  border: 10px;
-  border-top: 0px;
-  border-style: solid;
-  text-align: center;
+  /*border: 10px solid white;
+  border-top: 0;*/
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.figura >div{
+    text-align: center;
+    margin-left: 10px;
 }
 
 .botonesStruct{
@@ -90,10 +92,58 @@ body{
 }
 
 
-.box{
-  display:inline-block;
-  width: 150px;
-  height: 30px;
-  background-color: white;
-  margin-top: 10px;
+
+
+/*Aquí estará la fecha*/
+
+
+.icon {
+  /*position: absolute;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%,-50%);*/
+  width: 60px;
+  height:30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  width: 120%;
+  height: 6px;
+  background-color: #F5B7B1;
+  transform:rotate(90deg) scale(0.5);
+}
+
+.arrow::after, .arrow::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 6px;
+  right: -8px;
+  background-color:#F5B7B1;
+}
+
+.arrow::after {
+  top: -12px;
+  transform: rotate(45deg);
+}
+
+.arrow::before {
+  top: 12px;
+  transform: rotate(-45deg);
+}
+
+.nodo{
+  border-radius: 50em;
+  border: 5px solid #EC7063;
+  background-color: #FDEDEC;
+  width: 60px;
+  height: 60px;
+}
+.boxbase{
+  width: 60px;
+  height: 90px;
+  text-align: center;
 }
