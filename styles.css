@@ -26,6 +26,7 @@ body{
 }
 
 .caja > input[type="button"]{
+  margin-left: 5px;
   width: 40%;
   height: 50px;
   background: #034f84;

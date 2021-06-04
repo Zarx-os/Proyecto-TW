@@ -61,15 +61,14 @@ const pila = new Stack();
 let i = 1;
 let scale = 1;
 let j = 0;
-
+let contador=0;
+let dato;
 function mandarPagina() {
   alert("Ahora");
 }
 
 
-function verificar() {
-  let dato = document.getElementById('dato');
-
+function verificar(dato) {
   if (validaVacio(dato.value)) { //Se hace la comprabación de que text este vacio
     alert("Debe colocar un valor para agregar");
   } else {
@@ -95,6 +94,7 @@ function verificar() {
         colorea(j); //Aquí se encarga de colorear el nodo
         j++;
       }
+      contador++;
     }
   }
 }
@@ -113,7 +113,7 @@ function colorea(pos) {
     div.innerHTML = "<p>" + pila.peek() + "</p>" + "<p>Head</p>";
     if ((pos - 1) == 0) {
       div2.style.backgroundColor = "#FEEED5";
-      div2.innerHTML = "<p>" + pila.getLastNodo() + "</p>"+"<p>Cola</p>";
+      div2.innerHTML = "<p>" + pila.getLastNodo() + "</p>" + "<p>Cola</p>";
     } else {
       div2.style.backgroundColor = "#FEEED5";
       div2.innerHTML = "<p>" + pila.getLastNodo() + "</p>";
@@ -126,6 +126,7 @@ function coloreaRemove(pos) {
 
   if (pos == 0) {
     alert("Esta vacia tu pila");
+    pila.clear();
   } else {
     let div2 = document.getElementById(pos - 1);
     div2.style.backgroundColor = "#B5E3E3";
@@ -165,6 +166,7 @@ function eliminar() { //Función para eliminar los nodos
     j--;
     coloreaRemove(j);
   }
+  contador--;
 }
 
 
@@ -210,17 +212,68 @@ function insertAfter(newNode, existingNode) { //Esta función nos agrega los ele
   existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
 
+//funciones para guardar y cargar Pila
 
+function guardarPila() {
+  let dato = document.getElementById('dato');
 
+  if (validaVacio(dato.value)) {
+
+    alert("No puedes guardar ya que no hay nada en la pila");
+  } else {
+    if (typeof(Storage) !== "undefined") {
+      localStorage.clear();
+
+      for (let i = 0; i < pila.size(); i++) {
+        localStorage.setItem(i, pila.items[i]);
+      }
+      localStorage.setItem("size", pila.size());
+    } else {
+      alert("Lo sieto, tu navegador no soporta el guardado");
+    }
+  }
+
+}
+
+function cargarPila() {
+  if (typeof(Storage) !== "undefined") {
+    if(contador==1){
+      alert("La pila ya esta cargada");
+    }else{
+      limpiar();
+      for(let i=0;i<localStorage.getItem("size");i++){
+          dato.value=localStorage.getItem(i);
+          verificar(dato);
+      }
+      dato.setAttribute("value","");
+      contador=1;
+    }
+  } else {
+    alert("Lo sieto, tu navegador no soporta el guardado");
+  }
+}
+
+function limpiar() {
+  let tamano=pila.size();
+  for (let i = 0; i < tamano; i++) {
+    eliminar();
+  }
+  dato.setAttribute("value","");
+}
 //Codigo para cargar el document
 function cargar() {
   let pagina = document.getElementById('pila');
   let lista = document.getElementById('lista');
   let sacar = document.getElementById('sacar');
-  var boton = document.getElementById('insertarDato');
+  let boton = document.getElementById('insertarDato');
+  let cargar = document.getElementById('cargar');
+  let guardar = document.getElementById('guardar');
+  dato = document.getElementById('dato');
   pagina.addEventListener("click", mandarPagina, false);
-  boton.addEventListener("click", verificar, false);
+  boton.addEventListener("click", function(){verificar(dato)}, false);
   sacar.addEventListener("click", eliminar, false);
+  guardar.addEventListener("click", guardarPila, false);
+  cargar.addEventListener("click", cargarPila, false);
 }
 
 window.addEventListener("load", cargar, false);
