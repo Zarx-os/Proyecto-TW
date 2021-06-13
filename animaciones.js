@@ -54,6 +54,48 @@ class Stack {
 
 
 }
+//------------------------------------------------------------
+
+function guardar(){
+  for(let i=0;i<7;i++){
+    //setInterval(function(){ponerColor(i)},3000); // 3000ms = 3s
+    ponerColor(i);
+  }
+}
+
+function eliminarCod(){
+  for(let i=7;i<20;i++){
+    //setInterval(function(){ponerColor(i)},3000); // 3000ms = 3s
+    ponerColordequeve(i);
+  }
+}
+
+function ponerColor(i){
+  let cab;
+  cab = document.getElementById("lin"+i);
+  cab.style.background = "#3e4444";
+  cab.style.color = "#3e4444";
+  //cab.style.fontfamily = 'Lato';
+  //regresarColor(i);
+  setTimeout(function(){regresarColor(i)},((i+1)*200)); // 3000ms = 3s
+  //document.getElementById('imprime').innerHTML = i;
+}
+function regresarColor(i){
+  let cab = document.getElementById("lin"+i);
+  cab.style.background = "#3e4444";
+  cab.style.color = "white";
+}
+
+function ponerColordequeve(i){
+  let cab;
+  cab = document.getElementById("lin"+i);
+  cab.style.background = "#3e4444";
+  cab.style.color = "#3e4444";
+  //cab.style.fontfamily = 'Lato';
+  //regresarColor(i);
+  setTimeout(function(){regresarColor(i)},((i+1)*200)-1400); // 3000ms = 3s
+  //document.getElementById('imprime').innerHTML = i;
+}
 
 //--------------------------
 
@@ -95,6 +137,7 @@ function verificar(dato) {
         j++;
       }
       contador++;
+      guardar();
     }
   }
 }
@@ -167,6 +210,7 @@ function eliminar() { //Función para eliminar los nodos
     coloreaRemove(j);
   }
   contador--;
+  eliminarCod();
 }
 
 
