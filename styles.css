@@ -148,3 +148,23 @@ body{
   height: 90px;
   text-align: center;
 }
+
+.box{
+  background-color: #3e4444;
+  align-content: center;
+  width: 70%;
+  height: 50em;
+}
+.Estructura{
+  display: inline-block;
+}
+.Codigo{
+  color: white;
+  text-align: left;
+  position: absolute;
+  left: 70%;
+  bottom: 10%;
+}
+
+
+
